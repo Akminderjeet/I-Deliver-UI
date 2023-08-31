@@ -1,9 +1,13 @@
 import { react } from "react";
 import React, { useRef, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
+import Routing from './Routing.js';
 function App() {
 
-  return <Map></Map>
+  return <>
+    <Map></Map>
+    <Routing></Routing>
+  </>
 }
 function Map() {
   //const position = [31.479971, 76.189688];
