@@ -1,0 +1,34 @@
+.navbar {
+    background-color: white;
+    width: 80%;
+    padding: 20px;
+    margin: 100px;
+    height: 80%;
+    border-radius: 10px;
+    position: relative;
+}
+
+.inner-navbar {
+    position: relative;
+    margin: 0px !important;
+    padding: 0px !important;
+    width: 100%;
+    height: 100%;
+}
+
+.login-role {
+    background-color: cadetblue;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.login-options {
+    background-color: cadetblue;
+    position: relative;
+    height: 100%;
+}

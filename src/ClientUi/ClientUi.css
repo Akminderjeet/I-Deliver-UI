@@ -1,0 +1,22 @@
+.outer-div {
+    margin: 0px;
+    padding: 0px;
+    background-color: red;
+    background-image: none;
+    overflow: hidden;
+}
+
+.menu-outer-div {
+    height: 100vh;
+    background-color: green;
+    margin-top: 30px;
+    height: 100vh;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.navbar-outer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
