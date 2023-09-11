@@ -6,11 +6,13 @@ import Dashboard from "./Dashboard/Dashboard.js";
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ClientUi from "./ClientUi/ClientUi.js";
+import AdminUi from "./AdminUi/AdminUi.js";
 function App() {
 
   return <>
     {/* <Dashboard></Dashboard> */}
-    <ClientUi></ClientUi>
+    {/* <ClientUi></ClientUi> */}
+    <AdminUi></AdminUi>
     {/* <Map></Map> */}
     {/* <Routing></Routing> */}
   </>

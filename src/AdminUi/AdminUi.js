@@ -2,8 +2,8 @@ import React, { useEffect, useState, Suspense } from 'react'
 import NavBar from './NavBar'
 import Menu from './Menu'
 import PostUi from './Deliver/PostUi'
-import './ClientUi.css'
-export default function ClientUi() {
+import './AdminUi.css'
+export default function AdminUi() {
     return (
         <div className='container-fluid outer-div'>
             <NavBar></NavBar>
