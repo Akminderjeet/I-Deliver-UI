@@ -7,12 +7,14 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ClientUi from "./ClientUi/ClientUi.js";
 import AdminUi from "./AdminUi/AdminUi.js";
+import AgentUi from "./AgentUi/AgentUi.js";
 function App() {
 
   return <>
     {/* <Dashboard></Dashboard> */}
     {/* <ClientUi></ClientUi> */}
-    <AdminUi></AdminUi>
+    {/* <AdminUi></AdminUi> */}
+    <AgentUi></AgentUi>
     {/* <Map></Map> */}
     {/* <Routing></Routing> */}
   </>
