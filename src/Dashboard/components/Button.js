@@ -3,19 +3,22 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
-
+import { googleAdminLogin } from '../../api/index.js'
 const images = [
     {
         title: 'Admin',
         width: '33%',
+        name: 'admin'
     },
     {
         title: 'Delivery Partner',
         width: '33%',
+        name: 'deliverypartner'
     },
     {
         title: 'Client',
         width: '33%',
+        name: 'client'
     },
 ];
 
@@ -83,7 +86,21 @@ const ImageMarked = styled('span')(({ theme }) => ({
     transition: theme.transitions.create('opacity'),
 }));
 
-export default function ButtonBaseDemo() {
+export default function ButtonBaseDemo({ setLoginState }) {
+    function setState(LoginPerson) {
+        console.log(LoginPerson)
+        if (LoginPerson == 'admin') {
+            window.location.href = 'http://localhost:5000/admin/auth/google';
+        } else if (LoginPerson == 'client') {
+            console.log("as")
+            googleAdminLogin();
+        } else {
+
+        }
+    }
+    function doit() {
+        console.log("acd");
+    }
     return (
         <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
             {images.map((image) => (
@@ -93,6 +110,7 @@ export default function ButtonBaseDemo() {
                     style={{
                         width: image.width,
                     }}
+                    onClick={() => { setState(image.name) }}
                 >
                     <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
                     <ImageBackdrop className="MuiImageBackdrop-root" />

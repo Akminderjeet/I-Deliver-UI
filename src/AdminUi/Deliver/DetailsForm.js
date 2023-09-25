@@ -5,6 +5,7 @@ export default function DetailsForm() {
     return (
         <div className='info-div'>
             <input placeholder='Name of The Point'></input>
+            <input placeholder='City'></input>
             <Button>Submit</Button>
         </div>
     )

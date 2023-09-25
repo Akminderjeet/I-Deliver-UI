@@ -7,27 +7,24 @@ const Routing = () => {
 
     // Initialize the map
     function findDistance() {
-        var map = L.map('map').setView([31.479874, 76.189781], 13);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19
-        }).addTo(map);
-        console.log("asd")
         // Create routing control
+
         const routingControl = L.Routing.control({
             waypoints: [
                 L.latLng(31.479874, 76.189781),
                 L.latLng(30.206250, 74.979467)
             ]
-        }).addTo(map);
-
-        routingControl.on('routesfound', function (e) {
-            const route = e.routes[0];
-            const distance = route.summary.totalDistance; // Distance in meters
-            console.log("Distance: " + distance + " meters");
         });
 
+        routingControl.on('routesfound', function (e) {
+            var route = e.routes[0];
+            var distance = route.summary.totalDistance; // Distance in meters
+            console.log("Distance: " + distance + " meters");
+        });
+        routingControl.route();
+
     }
+
 
     //map.off();
     //map.remove();
@@ -37,3 +34,29 @@ const Routing = () => {
 };
 
 export default Routing;
+
+
+/* This code was same to find distance by road but with rendering map and showring route and also didnt give any
+appendChild error
+function findDistance() {
+       var map = L.map('map').setView([31.479874, 76.189781], 13);
+
+       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+           maxZoom: 19
+       }).addTo(map);
+       console.log("asd")
+       // Create routing control
+       const routingControl = L.Routing.control({
+           waypoints: [
+               L.latLng(31.479874, 76.189781),
+               L.latLng(30.206250, 74.979467)
+           ]
+       }).addTo(map);
+
+       routingControl.on('routesfound', function (e) {
+           const route = e.routes[0];
+           const distance = route.summary.totalDistance; // Distance in meters
+           console.log("Distance: " + distance + " meters");
+       });
+
+   }*/

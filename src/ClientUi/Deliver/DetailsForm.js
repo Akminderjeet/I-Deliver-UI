@@ -5,7 +5,7 @@ export default function DetailsForm() {
         <div className='info-div'>
             <div>From</div>
             <div>Destination</div>
-            <div>Weight</div>
+            <input placeholder=''></input>
         </div>
     )
 }

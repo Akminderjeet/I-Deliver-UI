@@ -2,6 +2,7 @@ import { react } from "react";
 import React, { useRef, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 import Routing from './Routing.js';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./Dashboard/Dashboard.js";
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,14 +11,25 @@ import AdminUi from "./AdminUi/AdminUi.js";
 import AgentUi from "./AgentUi/AgentUi.js";
 function App() {
 
-  return <>
-    {/* <Dashboard></Dashboard> */}
-    {/* <ClientUi></ClientUi> */}
-    {/* <AdminUi></AdminUi> */}
-    <AgentUi></AgentUi>
-    {/* <Map></Map> */}
-    {/* <Routing></Routing> */}
-  </>
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Dashboard />} />
+        <Route path="/admin/*" element={<AdminUi />} />
+        <Route path="/client" element={<ClientUi />} />
+        <Route path="/agent" element={<AgentUi />} />
+        <Route path="/maptesting" element={<Map />} />
+        <Route path="/routetesting" element={<Routing />} />
+      </Routes>
+    </BrowserRouter>
+  )
+  {/* <Dashboard></Dashboard> */ }
+  {/* <ClientUi></ClientUi> */ }
+  // <AdminUi></AdminUi>
+  {/* <AgentUi></AgentUi> */ }
+  {/* <Map></Map> */ }
+  {/* <Routing></Routing> */ }
+
 }
 function Map() {
   //const position = [31.479971, 76.189688];
