@@ -2,8 +2,7 @@ import React, { useEffect } from 'react'
 import { useRef, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 
-export default function DeliverMap({ centerCoord }) {
-    const [position, setPosition] = useState([]);
+export default function DeliverMap({ centerCoord, position, setPosition }) {
     const mapRef = useRef(null);
 
     function MyComponent() {

@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
-import { googleAdminLogin } from '../../api/index.js'
+import { googleAdminLogin, addMidNode } from '../../api/index.js'
 const images = [
     {
         title: 'Admin',
@@ -94,6 +94,7 @@ export default function ButtonBaseDemo({ setLoginState }) {
         } else if (LoginPerson == 'client') {
             console.log("as")
             googleAdminLogin();
+            // addMidNode();
         } else {
 
         }

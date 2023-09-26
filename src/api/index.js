@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 
 const url = 'http://localhost:5000/';
 export const googleAdminLogin = () => {
@@ -7,4 +7,11 @@ export const googleAdminLogin = () => {
     axios.get(googleUrl, {
         withCredentials: true
     });
+}
+
+export const addMidNode = (obj) => {
+    var tempUrl = url + 'admin/addmidpoint';
+    axios.post(tempUrl, { obj }, {
+        withCredentials: true
+    })
 }
