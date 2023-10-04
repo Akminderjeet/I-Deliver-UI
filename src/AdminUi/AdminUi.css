@@ -8,7 +8,8 @@
 
 .menu-outer-div {
     height: 100vh;
-    background-color: green;
+    background-color: rgb(64, 71, 85) !important;
+    color: white;
     margin-top: 30px;
     height: 100vh;
     position: relative;
@@ -20,8 +21,13 @@
 }
 
 .navbar-outer {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 0px !important;
+    width: 100%;
+    margin: 0px !important;
+    height: 5%;
+    /* background-color: rgb(28, 193, 222); */
+    background-color: rgb(25, 29, 34);
+    position: relative;
 }
 
 .menu-list {

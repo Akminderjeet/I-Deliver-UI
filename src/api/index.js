@@ -15,3 +15,10 @@ export const addMidNode = (obj) => {
         withCredentials: true
     })
 }
+
+export const createDelivery = (obj) => {
+    var tempUrl = url + 'client/createDelivery'
+    axios.post(tempUrl, { obj }, {
+        withCredentials: true
+    })
+}

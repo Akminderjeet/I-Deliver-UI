@@ -3,10 +3,17 @@ import { useEffect, useState, Suspense } from 'react'
 import './Post.css'
 import DeliverMap from './DeliverMap';
 import DetailsForm from './DetailsForm';
+import Confirm from './Confirm';
 export default function PostUi() {
 
     const [centerCoord, setCenterCoord] = useState([31, 76]);
     const [shouldRender, setShouldRender] = useState(false);
+    const [toFromCoord, setToFromCoord] = useState({
+        toLat: "", toLong: "", fromLat: "", fromLong: ""
+    })
+    const [selectMode, setSelectMode] = useState('to');
+
+    // adding 
 
     useEffect(() => {
         // Place your code that needs to run before the component mounts here
@@ -30,9 +37,9 @@ export default function PostUi() {
     }, []);
     return (
         <div className='post-outer'>
-            <DetailsForm></DetailsForm>
+            <DetailsForm toFromCoord={toFromCoord} selectMode={selectMode} setSelectMode={setSelectMode}></DetailsForm>
             <Suspense fallback={<div>Loading...</div>}>
-                {shouldRender && <DeliverMap centerCoord={centerCoord} className="map-div"></DeliverMap>
+                {shouldRender && <DeliverMap centerCoord={centerCoord} selectMode={selectMode} toFromCoord={toFromCoord} setToFromCoord={setToFromCoord} className="map-div"></DeliverMap>
 
                 }
             </Suspense>
