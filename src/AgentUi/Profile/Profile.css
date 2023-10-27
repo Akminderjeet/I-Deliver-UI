@@ -1,0 +1,21 @@
+.profile-outer {
+    background-color: white;
+    height: 100%;
+}
+
+.profile-inner {
+    padding: 10px;
+    height: 100%;
+}
+
+.form-outer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.form-input {
+    margin: 30px;
+    margin-left: 30px;
+}

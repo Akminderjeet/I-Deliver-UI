@@ -3,6 +3,8 @@ import './AgentUi.css'
 export default function Menu() {
     return (
         <ul className='menu-outer-div'>
+
+            <h6 className='menu-list'>Profile</h6>
             <h6 className='menu-list'>Orders</h6>
             <h6 className='menu-list'>Map</h6>
             <h6 className='menu-list'>Requests</h6>

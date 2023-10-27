@@ -10,7 +10,7 @@ export default function AdminUi() {
             <NavBar></NavBar>
             <div className='row' style={{ width: '100%' }}>
                 <div className="col-md-2" style={{ padding: '0px' }}> <Menu></Menu></div>
-                <div className="col-md-10" style={{ background: 'pink', padding: '0px' }}>
+                <div className="col-md-10" style={{ padding: '0px' }}>
                     <Routes>
                         <Route path="/addnode" element={<PostUi />} />
                     </Routes>

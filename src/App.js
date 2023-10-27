@@ -17,7 +17,7 @@ function App() {
         <Route exact path="/" element={<Dashboard />} />
         <Route path="/admin/*" element={<AdminUi />} />
         <Route path="/client/*" element={<ClientUi />} />
-        <Route path="/agent" element={<AgentUi />} />
+        <Route path="/agent/*" element={<AgentUi />} />
         <Route path="/maptesting" element={<Map />} />
         <Route path="/routetesting" element={<Routing />} />
       </Routes>
