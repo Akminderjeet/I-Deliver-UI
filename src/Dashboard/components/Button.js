@@ -96,7 +96,7 @@ export default function ButtonBaseDemo({ setLoginState }) {
             googleAdminLogin();
             // addMidNode();
         } else {
-
+            window.location.href = 'http://localhost:4000/auth/google';
         }
     }
     function doit() {

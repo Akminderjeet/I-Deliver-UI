@@ -35,3 +35,10 @@ export const setProfile = async (obj) => {
         withCredentials: true
     })
 }
+
+export const getRequest = async (obj) => {
+    var tempUrl = url + 'admin/getRequest'
+    return await axios.get(tempUrl, {
+        withCredentials: true
+    })
+}

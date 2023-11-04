@@ -1,0 +1,4 @@
+.listHover:hover {
+    background-color: rgb(126, 122, 130);
+    cursor: pointer;
+}

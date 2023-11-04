@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from './NavBar'
 import Menu from './Menu'
 import PostUi from './Deliver/PostUi'
+import Request from './Request/Request.js'
 import './AdminUi.css'
 export default function AdminUi() {
     return (
@@ -13,6 +14,7 @@ export default function AdminUi() {
                 <div className="col-md-10" style={{ padding: '0px' }}>
                     <Routes>
                         <Route path="/addnode" element={<PostUi />} />
+                        <Route path="/request" element={<Request />} />
                     </Routes>
                 </div>
             </div>
