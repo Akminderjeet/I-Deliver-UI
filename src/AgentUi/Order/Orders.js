@@ -14,29 +14,9 @@ import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Button from '@mui/material/Button';
-
-function createData(name, calories, fat, carbs, protein, price) {
-    return {
-        name,
-        calories,
-        fat,
-        carbs,
-        protein,
-        price,
-        history: [
-            {
-                date: '2020-01-05',
-                customerId: '11091700',
-                amount: 3,
-            },
-            {
-                date: '2020-01-02',
-                customerId: 'Anonymous',
-                amount: 1,
-            },
-        ],
-    };
-}
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { getOrders } from '../../api/agentApi'
 
 function Row(props) {
     const { row } = props;
@@ -55,10 +35,10 @@ function Row(props) {
                     </IconButton>
                 </TableCell>
                 <TableCell component="th" scope="row">
-                    {row.name}
+                    {row.order._id}
                 </TableCell>
-                <TableCell align="left">{row.calories}</TableCell>
-                <TableCell align="left">{row.fat}</TableCell>
+                <TableCell align="left">{row.order.status === 0 ? <h6>Home</h6> : <h6>{row.current}</h6>}</TableCell>
+                <TableCell align="left">{row.order.next}</TableCell>
                 <TableCell align="left"> <Button variant="contained">Picked</Button></TableCell>
                 <TableCell align="left"> <Button variant="contained">Delivered</Button></TableCell>
             </TableRow>
@@ -67,30 +47,29 @@ function Row(props) {
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
                             <Typography variant="h6" gutterBottom component="div">
-                                History
+                                Additional Information
                             </Typography>
                             <Table size="small" aria-label="purchases">
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell>Date</TableCell>
-                                        <TableCell>Customer</TableCell>
-                                        <TableCell align="right">Amount</TableCell>
-                                        <TableCell align="right">Total price ($)</TableCell>
+                                        <TableCell>Payment</TableCell>
+                                        <TableCell>Weight</TableCell>
+                                        <TableCell align="right">Amount Mode</TableCell>
+                                        <TableCell align="right">Contact Info</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {row.history.map((historyRow) => (
-                                        <TableRow key={historyRow.date}>
-                                            <TableCell component="th" scope="row">
-                                                {historyRow.date}
-                                            </TableCell>
-                                            <TableCell>{historyRow.customerId}</TableCell>
-                                            <TableCell align="right">{historyRow.amount}</TableCell>
-                                            <TableCell align="right">
-                                                {Math.round(historyRow.amount * row.price * 100) / 100}
-                                            </TableCell>
-                                        </TableRow>
-                                    ))}
+                                    <TableRow>
+                                        <TableCell component="th" scope="row">
+                                            {<h6>dfd</h6>}
+                                        </TableCell>
+                                        <TableCell>{ }</TableCell>
+                                        <TableCell align="right">{ }</TableCell>
+                                        <TableCell align="right">
+                                            { }
+                                        </TableCell>
+                                    </TableRow>
+
                                 </TableBody>
                             </Table>
                         </Box>
@@ -101,38 +80,19 @@ function Row(props) {
     );
 }
 
-Row.propTypes = {
-    row: PropTypes.shape({
-        calories: PropTypes.number.isRequired,
-        carbs: PropTypes.number.isRequired,
-        fat: PropTypes.number.isRequired,
-        history: PropTypes.arrayOf(
-            PropTypes.shape({
-                amount: PropTypes.number.isRequired,
-                customerId: PropTypes.string.isRequired,
-                date: PropTypes.string.isRequired,
-            }),
-        ).isRequired,
-        name: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        protein: PropTypes.number.isRequired,
-    }).isRequired,
-};
 
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0, 3.99),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 4.99),
-    createData('Eclair', 262, 16.0, 24, 6.0, 3.79),
-    createData('Cupcake', 305, 3.7, 67, 4.3, 2.5),
-    createData('Gingerbread', 356, 16.0, 49, 3.9, 1.5),
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0, 3.99),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 4.99),
-    createData('Eclair', 262, 16.0, 24, 6.0, 3.79),
-    createData('Cupcake', 305, 3.7, 67, 4.3, 2.5),
-    createData('Gingerbread', 356, 16.0, 49, 3.9, 1.5),
-];
 
-export default function orders() {
+export default function Orders() {
+    const [orders, setorders] = useState([]);
+    useEffect(() => {
+        const doit = async () => {
+            var dataa = await getOrders();
+            console.log(dataa.data);
+            setorders(dataa.data);
+            console.log(orders);
+        }
+        doit();
+    }, [])
     return (
         <TableContainer component={Paper}>
             <Table aria-label="collapsible table">
@@ -147,7 +107,7 @@ export default function orders() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
+                    {orders.map((row) => (
                         <Row key={row.name} row={row} />
                     ))}
                 </TableBody>
