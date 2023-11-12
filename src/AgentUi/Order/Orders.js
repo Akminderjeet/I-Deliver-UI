@@ -16,7 +16,8 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { getOrders } from '../../api/agentApi'
+import { getOrders, acceptOrder, deliverOrder } from '../../api/agentApi'
+
 
 function Row(props) {
     const { row } = props;
@@ -39,8 +40,8 @@ function Row(props) {
                 </TableCell>
                 <TableCell align="left">{row.order.status === 0 ? <h6>Home</h6> : <h6>{row.current}</h6>}</TableCell>
                 <TableCell align="left">{row.order.next}</TableCell>
-                <TableCell align="left"> <Button variant="contained">Picked</Button></TableCell>
-                <TableCell align="left"> <Button variant="contained">Delivered</Button></TableCell>
+                <TableCell align="left"> <Button variant="contained" onClick={() => { acceptOrder({ orderId: row.order._id }) }}>Picked</Button></TableCell>
+                <TableCell align="left"> <Button variant="contained" onClick={() => { deliverOrder({ orderId: row.order._id }) }}>Delivered</Button></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
