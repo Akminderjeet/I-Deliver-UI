@@ -92,8 +92,7 @@ export default function ButtonBaseDemo({ setLoginState }) {
         if (LoginPerson == 'admin') {
             window.location.href = 'http://localhost:5000/admin/auth/google';
         } else if (LoginPerson == 'client') {
-            console.log("as")
-            googleAdminLogin();
+            window.location.href = 'http://localhost:5000/client/auth/google';
             // addMidNode();
         } else {
             window.location.href = 'http://localhost:4000/auth/google';

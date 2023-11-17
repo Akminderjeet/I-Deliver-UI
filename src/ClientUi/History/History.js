@@ -18,7 +18,9 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { getOrders, acceptOrder, deliverOrder, getLocation } from '../../api/agentApi'
 import { useNavigate } from 'react-router-dom';
-
+import { getHistory } from '../../api/clientApi';
+import PlaceIcon from '@mui/icons-material/Place';
+import './History.css'
 
 function Row(props) {
     const { row } = props;
@@ -31,20 +33,18 @@ function Row(props) {
                     <IconButton
                         aria-label="expand row"
                         size="small"
-                        onClick={() => setOpen(!open)}
                     >
                         {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                     </IconButton>
                 </TableCell>
                 <TableCell component="th" scope="row">
-                    {row.order._id}
+                    {row._id}
                 </TableCell>
-                <TableCell align="left">{row.order.status === 0 ? <h6>Home</h6> : <h6>{row.order.current}</h6>}</TableCell>
-                <TableCell align="left">{row.order.status == row.order.path.length ? <h6>Out for Delivery</h6> : <h6>{row.order.next}</h6>}</TableCell>
-                <TableCell align="left"> <Button variant="contained" onClick={() => { acceptOrder({ orderId: row.order._id }) }}>Picked</Button></TableCell>
-                <TableCell align="left"> <Button variant="contained" onClick={() => { deliverOrder({ orderId: row.order._id }) }}>Delivered</Button></TableCell>
+                <TableCell align="left">{row.owner}</TableCell>
+                <TableCell align="left">{row.status}</TableCell>
+                <TableCell className='history-outer'><PlaceIcon className='accesstimeicon'></PlaceIcon></TableCell>
             </TableRow>
-            <TableRow>
+            {/* <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
@@ -84,18 +84,18 @@ function Row(props) {
                         </Box>
                     </Collapse>
                 </TableCell>
-            </TableRow>
+            </TableRow> */}
         </React.Fragment>
     );
 }
 
 
 
-export default function Orders() {
+export default function History() {
     const [orders, setorders] = useState([]);
     useEffect(() => {
         const doit = async () => {
-            var dataa = await getOrders();
+            var dataa = await getHistory();
             console.log(dataa.data);
             setorders(dataa.data);
             console.log(orders);
@@ -109,10 +109,10 @@ export default function Orders() {
                     <TableRow>
                         <TableCell />
                         <TableCell><b>OrderID</b> </TableCell>
-                        <TableCell align="left"><b>Pickup</b></TableCell>
-                        <TableCell align="left"><b>Delivery</b></TableCell>
-                        <TableCell align="left"><b>Picked Up</b></TableCell>
-                        <TableCell align="left"><b>Delivered</b></TableCell>
+                        <TableCell align="left"><b>Owner</b></TableCell>
+                        <TableCell align="left"><b>Status</b></TableCell>
+                        <TableCell align="left"></TableCell>
+                        <TableCell align="left"></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

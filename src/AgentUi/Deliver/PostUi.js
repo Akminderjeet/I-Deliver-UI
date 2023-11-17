@@ -3,10 +3,14 @@ import { useEffect, useState, Suspense } from 'react'
 import './Post.css'
 import DeliverMap from './DeliverMap';
 import DetailsForm from './DetailsForm';
+import { useLocation } from 'react-router-dom';
 export default function PostUi() {
 
     const [centerCoord, setCenterCoord] = useState([31, 76]);
     const [shouldRender, setShouldRender] = useState(false);
+    const location = useLocation();
+    const params = location.state || {};
+    console.log(params);
 
     useEffect(() => {
         // Place your code that needs to run before the component mounts here

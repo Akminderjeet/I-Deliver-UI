@@ -1,0 +1,14 @@
+.accesstimeicon:hover {
+    cursor: pointer;
+}
+
+.history-outer:hover {
+    background-color: bisque;
+}
+
+.history-outer {
+    display: flex;
+    align-items: center;
+
+    justify-content: space-around;
+}

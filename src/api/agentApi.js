@@ -23,3 +23,11 @@ export const deliverOrder = (obj) => {
         withCredentials: true
     })
 }
+export const getLocation = (obj) => {
+    var tempUrl = url + "agent/getLocation/";
+    console.log("sdfsdfsdf")
+    console.log(obj);
+    return axios.post(tempUrl, obj, {
+        withCredentials: true
+    })
+}

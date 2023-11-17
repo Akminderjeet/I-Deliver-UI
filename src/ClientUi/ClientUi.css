@@ -32,3 +32,38 @@
     opacity: .5;
     cursor: pointer;
 }
+
+.outer-div {
+    margin: 0px;
+    padding: 0px;
+    background-color: red;
+    background-image: none;
+    overflow: hidden;
+}
+
+.menu-outer-div {
+    height: 100vh;
+    background-color: green;
+    margin-top: 30px;
+    height: 100vh;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar-outer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.menu-list {
+    margin-top: 20px;
+}
+
+.menu-list:hover {
+    opacity: .5;
+    cursor: pointer;
+}
