@@ -9,3 +9,11 @@ export const getHistory = async (id) => {
         withCredentials: true
     })
 }
+
+export const getPath = async (obj) => {
+    var tempUrl = url + "client/getpath";
+    console.log("YUPPP")
+    return axios.post(tempUrl, obj, {
+        withCredentials: true
+    })
+}

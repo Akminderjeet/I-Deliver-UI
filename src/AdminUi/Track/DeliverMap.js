@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useRef, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
+import { trackPoints } from '../../api/adminApi';
 
 export default function DeliverMap({ centerCoord, params }) {
     const [position, setPosition] = useState([]);
@@ -8,6 +9,16 @@ export default function DeliverMap({ centerCoord, params }) {
     navigator.geolocation.watchPosition((position) => {
         setPosition([position.coords.latitude, position.coords.longitude]);
     })
+    const [points, setPoints] = useState([]);
+    useEffect(() => {
+        const doit = async () => {
+            const data = await trackPoints();
+            setPoints(data.data);
+            console.log(data.data);
+        }
+        doit();
+    }, [])
+
     /*function MyComponent() {
         const map = useMapEvents({
             click: (e) => {
@@ -20,8 +31,6 @@ export default function DeliverMap({ centerCoord, params }) {
         });
         return null;
     }*/
-    var temp = [params.destination.lat, params.destination.lng]
-    console.log(temp)
     return (
         <MapContainer center={centerCoord} zoom={12} style={{ width: '100%', height: '400px', margin: '10px' }} dragging='true'>
             <TileLayer
@@ -33,9 +42,11 @@ export default function DeliverMap({ centerCoord, params }) {
             </Marker> : <></>
 
             } */}
-            < Marker position={temp} >
-                <Popup>Your Location</Popup>
-            </Marker> : <></>
+            {points.map((node) => (
+                (node.latitude && node.longitude) ? <Marker position={[node.latitude, node.longitude]}>
+                    <Popup>Your Location</Popup>
+                </Marker> : <></>
+            ))}
 
         </MapContainer >
     );

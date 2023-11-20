@@ -14,3 +14,10 @@ export const acceptRequest = async (id) => {
         withCredentials: true
     })
 }
+export const trackPoints = () => {
+    var tempUrl = url + "admin/trackpoints/";
+    console.log("sdfsdfsdf")
+    return axios.get(tempUrl, {
+        withCredentials: true
+    })
+}

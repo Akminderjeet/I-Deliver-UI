@@ -5,6 +5,7 @@ import Menu from './Menu'
 import PostUi from './Deliver/PostUi'
 import './ClientUi.css'
 import History from './History/History.js';
+import TrackUi from './Track/PostUi.js'
 export default function ClientUi() {
     return (
         <div className='container-fluid outer-div'>
@@ -15,6 +16,7 @@ export default function ClientUi() {
                     <Routes>
                         <Route path="/addnode" element={<PostUi />} />
                         <Route path="/history" element={<History />} />
+                        <Route path="/track" element={< TrackUi />} />
                     </Routes>
                 </div>
             </div>

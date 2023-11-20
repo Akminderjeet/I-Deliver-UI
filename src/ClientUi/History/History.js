@@ -18,7 +18,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { getOrders, acceptOrder, deliverOrder, getLocation } from '../../api/agentApi'
 import { useNavigate } from 'react-router-dom';
-import { getHistory } from '../../api/clientApi';
+import { getHistory, getPath } from '../../api/clientApi';
 import PlaceIcon from '@mui/icons-material/Place';
 import './History.css'
 
@@ -42,7 +42,17 @@ function Row(props) {
                 </TableCell>
                 <TableCell align="left">{row.owner}</TableCell>
                 <TableCell align="left">{row.status}</TableCell>
-                <TableCell className='history-outer'><PlaceIcon className='accesstimeicon'></PlaceIcon></TableCell>
+                <TableCell className='history-outer' onClick={async () => {
+                    var pathDetails = await getPath(row.path);
+                    var pathdata = pathDetails.data;
+                    console.log(pathdata);
+                    pathdata.push(row.start);
+                    pathdata.push(row.end);
+                    const route = '/client/track';
+                    // Use the push method to navigate to the new page with parameters
+                    navigate(route, { state: { temp: pathdata } });
+
+                }} ><PlaceIcon className='accesstimeicon'></PlaceIcon></TableCell>
             </TableRow>
             {/* <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>

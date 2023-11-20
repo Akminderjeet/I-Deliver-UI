@@ -11,7 +11,8 @@ export default function PostUi() {
     const location = useLocation();
     const params = location.state || {};
     console.log(params);
-
+    console.log("-----------------")
+    // setTrackParams(params);
     useEffect(() => {
         // Place your code that needs to run before the component mounts here
         navigator.geolocation.getCurrentPosition((position) => {

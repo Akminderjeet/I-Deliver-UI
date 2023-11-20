@@ -5,6 +5,7 @@ import Menu from './Menu'
 import PostUi from './Deliver/PostUi'
 import Request from './Request/Request.js'
 import './AdminUi.css'
+import TrackUi from './Track/PostUi.js'
 export default function AdminUi() {
     return (
         <div className='container-fluid outer-div'>
@@ -15,6 +16,7 @@ export default function AdminUi() {
                     <Routes>
                         <Route path="/addnode" element={<PostUi />} />
                         <Route path="/request" element={<Request />} />
+                        <Route path="/track" element={<TrackUi />} />
                     </Routes>
                 </div>
             </div>

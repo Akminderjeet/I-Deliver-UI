@@ -60,9 +60,9 @@ function Row(props) {
                                         <TableCell align="right"><Button variant="outlined" onClick={async () => {
                                             const route = '/agent/addNode';
                                             const params = await getLocation(row);
-
+                                            console.log(params);
                                             // Use the push method to navigate to the new page with parameters
-                                            navigate(route, { state: params });
+                                            navigate(route, { state: params.data });
 
                                         }}>Show on Map</Button></TableCell>
                                     </TableRow>

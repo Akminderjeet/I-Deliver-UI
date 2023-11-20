@@ -1,0 +1,24 @@
+.post-outer {
+    background-color: black;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-div {
+    width: 100%;
+    background-color: white;
+    height: 12%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.map-div {
+    margin: 20px;
+}

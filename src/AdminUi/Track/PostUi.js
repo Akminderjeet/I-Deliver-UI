@@ -8,10 +8,7 @@ export default function PostUi() {
 
     const [centerCoord, setCenterCoord] = useState([31, 76]);
     const [shouldRender, setShouldRender] = useState(false);
-    const location = useLocation();
-    const params = location.state || {};
-    console.log(params);
-
+    // setTrackParams(params);
     useEffect(() => {
         // Place your code that needs to run before the component mounts here
         navigator.geolocation.getCurrentPosition((position) => {
@@ -36,7 +33,7 @@ export default function PostUi() {
         <div className='post-outer'>
             <DetailsForm></DetailsForm>
             <Suspense fallback={<div>Loading...</div>}>
-                {shouldRender && <DeliverMap centerCoord={centerCoord} className="map-div" params={params}></DeliverMap>
+                {shouldRender && <DeliverMap centerCoord={centerCoord} className="map-div" ></DeliverMap>
 
                 }
             </Suspense>

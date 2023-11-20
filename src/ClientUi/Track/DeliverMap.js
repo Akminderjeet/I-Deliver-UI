@@ -20,8 +20,8 @@ export default function DeliverMap({ centerCoord, params }) {
         });
         return null;
     }*/
-    var temp = [params.destination.lat, params.destination.lng]
-    console.log(temp)
+    console.log(params)
+    console.log("++++++++++++++++++++++++++++++++++++++++")
     return (
         <MapContainer center={centerCoord} zoom={12} style={{ width: '100%', height: '400px', margin: '10px' }} dragging='true'>
             <TileLayer
@@ -33,9 +33,11 @@ export default function DeliverMap({ centerCoord, params }) {
             </Marker> : <></>
 
             } */}
-            < Marker position={temp} >
-                <Popup>Your Location</Popup>
-            </Marker> : <></>
+            {params.temp.map((node) => (
+                <Marker position={[node.lat, node.lng]}>
+                    <Popup>Your Location</Popup>
+                </Marker>
+            ))}
 
         </MapContainer >
     );
