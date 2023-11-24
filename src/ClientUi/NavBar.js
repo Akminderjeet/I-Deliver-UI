@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../icons/IDeliverLogo.jpg'
+import logo from '../icons/IDeliverLogo.png'
 export default function NavBar() {
     return (
         <div className='navbar-outer row'>
